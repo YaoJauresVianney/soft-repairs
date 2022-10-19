@@ -21,7 +21,6 @@ class ClientController extends Controller
 
     public function index() {
         $clients = $this->clientRepo->all();
-
         return view('clients.index', compact('clients'));
     }
 
@@ -96,5 +95,11 @@ class ClientController extends Controller
                 'class' => $this->clientRepo->class_fail
             ]
             );
+    }
+    public function list(int $id) {
+        $repairs = $this->clientRepo->invoicesList($id);
+        $client = Client::find($id);
+
+        return view('clients.list-invoice', compact('repairs', 'client'));
     }
 }
