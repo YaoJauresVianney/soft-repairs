@@ -102,4 +102,10 @@ class ClientController extends Controller
 
         return view('clients.list-invoice', compact('repairs', 'client'));
     }
+
+    public function listOfPending(int $id) {
+        $repairsPending = $this->clientRepo->repairsClient($id, 'pending');
+
+        return view('');
+    }
 }

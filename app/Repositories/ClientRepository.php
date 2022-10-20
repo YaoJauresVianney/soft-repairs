@@ -94,4 +94,12 @@ class ClientRepository
         ->orderBy('created_at', 'desc')
         ->get();
     }
+
+    public function repairsClient(int $id, string $state) {
+        return Repair::with('client', 'peopletype', 'vehiclecategory', 'wrecker')
+            ->where('client_id', $id)
+            ->where('state', $state)
+            ->orderBy('created_at', 'desc')
+            ->get();
+    }
 }
