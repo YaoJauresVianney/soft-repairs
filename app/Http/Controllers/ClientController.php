@@ -99,13 +99,15 @@ class ClientController extends Controller
     public function list(int $id) {
         $repairs = $this->clientRepo->invoicesList($id);
         $client = Client::find($id);
+        $repairsPending = $this->clientRepo->repairsClient($id, 'pending');
+        $nbOfRepairs = $repairsPending->count();
 
-        return view('clients.list-invoice', compact('repairs', 'client'));
+        return view('clients.list-invoice', compact('repairs', 'client', 'nbOfRepairs'));
     }
 
     public function listOfPending(int $id) {
         $repairsPending = $this->clientRepo->repairsClient($id, 'pending');
 
-        return view('');
+        return view('clients.invoices', compact('repairsPending'));
     }
 }

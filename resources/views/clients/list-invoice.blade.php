@@ -6,6 +6,9 @@
             <h1>Les factures de : {{$client->fullname}}</h1>
         </div>
         <div class="card-body">
+            @if($nbOfRepairs > 0)
+            <a href="{{route('clients.pending', $client->id)}}" class="btn btn-dark">Liste des factures en cours</a>
+            @endif
             <table id="example2" class="table table-hover table-bordered">
                 <thead>
                     <tr>
