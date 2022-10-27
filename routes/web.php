@@ -26,6 +26,7 @@ Route::get('/clients/{id}/pending', 'App\Http\Controllers\ClientController@listO
 Route::post('/clients/store', 'App\Http\Controllers\CLientController@store')->name('clients.store')->middleware('auth');
 Route::post('/clients/update', 'App\Http\Controllers\ClientController@update')->name('clients.updating')->middleware('auth');
 Route::post('/clients/destroy', 'App\Http\Controllers\ClientController@destroy')->name('clients.destroy')->middleware('auth');
+Route::get('/clients/{id}/pending/invoices', 'App\Http\Controllers\ClientController@listOfInvoice')->name('clients.listinvoices')->middleware('auth');
 
 Route::get('/repairs', 'App\Http\Controllers\RepairController@index')->name('repairs.index')->middleware('auth');
 Route::get('/repairsclosed', 'App\Http\Controllers\RepairController@closed')->name('repairs.closed')->middleware('auth');

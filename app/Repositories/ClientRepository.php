@@ -102,4 +102,8 @@ class ClientRepository
             ->orderBy('created_at', 'desc')
             ->get();
     }
+
+    public function printInvoicesClient($id, string $state) {
+        return $this->repairsClient($id, $state);
+    }
 }

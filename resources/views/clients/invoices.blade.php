@@ -8,7 +8,7 @@
     <div class="card mx-2 my-2">
         <div class="card-header">
             <div class="row">
-                <div class="col-md-4"><h1>Liste des dépannages de {{$client}}</h1></div>
+                <div class="col-md-4"><h1>Liste des dépannages de {{$client->fullname}}</h1></div>
                 <div class="col-md-7"></div>
                 <div class="col-md-1">
                     <a href="{{ route('repairs.create') }}" class="btn btn-success fw-bold">NOUVEAU</a>
@@ -16,6 +16,7 @@
             </div>
         </div>
         <div class="card-body">
+            <a href="{{route('clients.listinvoices', $client->id)}}" class="btn btn-outline-dark"><img src="{{asset('svg/facture.svg')}}" height="20" width="20">Impression des factures</a>
             <table class="table table-hover table-head-fixed" id="example2">
                 <thead>
                 <tr>
@@ -95,7 +96,6 @@
                 @endforeach
             </table>
         </div>
-
 
         {{-- The Master doesn't talk, he acts. --}}
     </div>

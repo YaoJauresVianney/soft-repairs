@@ -108,8 +108,18 @@ class ClientController extends Controller
     public function listOfPending(int $id) {
         $repairsPending = $this->clientRepo->repairsClient($id, 'pending');
         $client = Client::find($id);
-        $client = $client->fullname;
 
         return view('clients.invoices', compact('repairsPending', 'client'));
+    }
+
+    public function listOfInvoice(int $id) {
+        $repairs = $this->clientRepo->printInvoicesClient($id, 'pending');
+        //dd($repairs);
+        $tot = 0;
+        foreach($repairs as $repair) {
+            $tot += $repair->sumDays()+$repair->tva() - $repair->reduction;
+        }
+
+        return view('clients.list-invoices', compact('repairs', 'tot'));
     }
 }
