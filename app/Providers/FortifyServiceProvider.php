@@ -39,11 +39,11 @@ class FortifyServiceProvider extends ServiceProvider
         Fortify::resetUserPasswordsUsing(ResetUserPassword::class);
 
         Fortify::loginView(function () {
-            return view('layouts.auth.login');
+            return view('layouts.auth.loginAnimated');
         });
 
         Fortify::authenticateUsing(function (Request $request) {
-
+            //dd($request);
             $user = User::where('email', $request->name)->first();
             if($user && Hash::check($request->password, $user->password)) {
                 return $user;

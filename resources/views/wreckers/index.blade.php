@@ -41,16 +41,16 @@
                         <td>{{ $wrecker->label }}</td>
                         <td>
                             @if($wrecker->is_enabled)
-                                <div class="alert alert-success">Oui</div>
+                                <span class="p-1 btn btn-success">Oui</span>
                             @else
-                                <div class="alert alert-danger">Non</div>
+                                <span class="p-1 btn btn-danger">Non</span>
                             @endif
                         </td>
                         <td>
                             @if($wrecker->gray_card)
-                                <div class="alert alert-success">Oui</div>
+                                <span class="p-1 btn btn-success">Oui</span>
                             @else
-                                <div class="alert alert-danger">Non</div>
+                                <span class="p-1 btn btn-danger">Non</span>
                             @endif
                         </td>
                         <td>
