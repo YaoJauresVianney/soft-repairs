@@ -9,7 +9,7 @@
     body{
       color: #444;
       font-family: 'Arial';
-      background:linear-gradient(rgba(255,255,255,.85), rgba(255,255,255,.85)), url('/images/logo.png');
+      background:linear-gradient(rgba(255,255,255,.85), rgba(255,255,255,.85)), url('/img/logo.png');
       background-size: 400px;
       background-repeat: no-repeat;
       background-position: center;
@@ -56,7 +56,7 @@
   <table width="100%">
     <tr>
       <td width="150">
-      <img src="{{ asset('images/logo.png') }}" alt="LOGO" width="90px">
+      <img src="{{ asset('img/logo.png') }}" alt="LOGO" width="90px">
       </td>
       <td>
         <h3 style="margin:0">Ivoire Dépannage Express</h3>

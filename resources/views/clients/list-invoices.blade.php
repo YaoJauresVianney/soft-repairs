@@ -57,7 +57,7 @@
     <table width="100%">
         <tr>
             <td width="150">
-                <img src="{{ asset('images/logo.png') }}" alt="LOGO" width="90px">
+                <img src="{{ asset('img/logo.png') }}" alt="LOGO" width="90px">
             </td>
             <td>
                 <h3 style="margin:0">Ivoire Dépannage Express</h3>
