@@ -91,7 +91,7 @@ class Wrecker extends Model
             ];
         } else if ($now == $d) {
             return [
-                'class' => 'alert-warning'
+                'class' => 'alert alert-warning'
             ];
         } else if ($now > $d){
             return [
