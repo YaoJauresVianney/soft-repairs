@@ -166,7 +166,12 @@ class Repair extends Model
         $tarif = Pricegetting::where('vehiclecategory_id', $this->vehiclecategory_id)
                                 ->where('peopletype_id', $this->peopletype_id)
                                 ->first();
-        $enlevement = (intval(substr($this->hour_getting,0,2))>$this->timeNight)? $tarif->price_night: $enlevement = $tarif->price_day;
+        if($this->peopletype->code == 'forfait-heure') {
+            $enlevement = (intval(substr($this->hour_getting,0,2))>$this->timeNight)? ($tarif->price_night * $this->work_time): $enlevement = ($tarif->price_day * $this->work_time);
+        }
+        else {
+            $enlevement = (intval(substr($this->hour_getting,0,2))>$this->timeNight)? $tarif->price_night: $enlevement = $tarif->price_day;
+        }
 
         return $enlevement;
     }
@@ -180,12 +185,15 @@ class Repair extends Model
     {
         $penalites = 0;
         $pen = Pricepenality::where('vehiclecategory_id', $this->vehiclecategory_id)
-                                ->where('peopletype_id', $this->peopletype_id)
-                                ->first();
-        if($this->numberDays()>$this->daysPen)
+            ->where('peopletype_id', $this->peopletype_id)
+            ->first();
+        if ($this->numberDays() > $this->daysPen){
             return $pen->penality_per_day;
-        else
+        }
+        else{
             return $pen->penality_per_day;
+
+        }
     }
 
     public function perKg()
@@ -208,7 +216,12 @@ class Repair extends Model
                                 ->first();
         if($tarif != null) {
             if (!$tarif->per_kg) {
-                $enlevement = (intval(substr($this->hour_getting, 0, 2)) > $this->timeNight) ? $tarif->price_night : $enlevement = $tarif->price_day;
+                if($this->peopletype->code == 'forfait-heure') {
+                    $enlevement = (intval(substr($this->hour_getting,0,2))>$this->timeNight)? ($tarif->price_night * $this->work_time): $enlevement = ($tarif->price_day * $this->work_time);
+                }
+                else {
+                    $enlevement = (intval(substr($this->hour_getting,0,2))>$this->timeNight)? $tarif->price_night: $enlevement = $tarif->price_day;
+                }
                 if ($this->numberDays() > $this->daysPen) {
                     $penalites = $pen->penality_per_day * ($this->numberDays() - $this->daysPen);
                 }

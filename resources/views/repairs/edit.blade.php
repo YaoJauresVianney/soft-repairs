@@ -53,7 +53,7 @@
                                 <label for="">Marque</label>
                                 <input type="text" name="car_brand" id="car_brand" class="form-control" value="{{ $repair->car_brand }}">
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <label for="">Catégorie véhicule</label>
                                     <select class="form-control" id="vehiclecategory_id" name="vehiclecategory_id">
 
@@ -70,9 +70,13 @@
 
                                     </select>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <label for="">Immatriculation</label>
                                 <input type="text" name="car_imm" id="car_imm" class="form-control" value="{{ $repair->car_imm }}">
+                            </div>
+                            <div class="col-md-2">
+                                <label for="">Nombre d'heures</label>
+                                <input type="number" name="work_time" class="form-control" value={{$repair->work_time}} >
                             </div>
                         </div>
                         <div class="row mb-3">

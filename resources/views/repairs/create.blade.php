@@ -89,7 +89,10 @@
                                 <div class="invalid-feedback">{{$message}}</div>
                                 @enderror
                             </div>
-
+                            <div class="col-md-2">
+                                <label for="">Nombre d'heures</label>
+                                <input type="number" name="work_time" class="form-control" value=1 >
+                            </div>
                         </div>
                         <div class="row mb-3">
                             <div class="col-md-6">
