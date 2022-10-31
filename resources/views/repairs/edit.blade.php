@@ -17,6 +17,12 @@
                         <h2>Véhicule</h2>
                     </div>
                     <div class="card-body">
+                        <div class="row" mb-3>
+                            <div class="col-md-4">
+                                <label for="reduction">Réduction</label>
+                                <input type="number" name="reduction" class="form-control">
+                            </div>
+                        </div>
                         <div class="row mb-3">
                             <div class="col-md-3">
                                 <label for="">Date enlèvement</label>

@@ -230,6 +230,7 @@ class RepairController extends Controller
             $repair->others = $request->others;
             $repair->archived = $days >= 180 ? 1 : 0;
             $repair->park = $request->park;
+            $repair->reduction = $request->reduction;
             $update = $repair->save();
 
             if($update) {
