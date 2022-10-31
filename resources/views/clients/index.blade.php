@@ -21,6 +21,7 @@
             <thead>
                 <tr>
                     <th>Nom & Prénoms</th>
+                    <th>Nb. Factures</th>
                     <th>Numéro de CNI</th>
                     <th>Numéro Permis de Conduire</th>
                     <th>Numéro Passeport</th>
@@ -33,12 +34,14 @@
                 @foreach($clients as $client)
                 <tr>
                     <td>{{ $client->fullname }}</td>
+                    <td>{{ $client->repairs_count }}</td>
                     <td>{{ $client->cni }}</td>
                     <td>{{ $client->num_license }}</td>
                     <td>{{ $client->passport }}</td>
                     <td>{{ $client->phone1 }}</td>
                     <td>{{ $client->phone2 }}</td>
                     <td class="d-flex">
+                        <a href="{{route('clients.repairs', $client->id)}}" class="btn"><img src="{{asset('img/list.png')}}" height="20" width="20" alt="Liste"></a>
                         <a href="{{route('clients.edit', $client->id)}}" class="btn"><img src="{{asset('svg/modify.svg')}}" height="20" width="20" alt="Modifier"></a>
                         <form method="post" action="{{route('clients.destroy')}}">
                             @csrf

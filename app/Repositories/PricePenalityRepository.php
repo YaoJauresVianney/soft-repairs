@@ -6,6 +6,7 @@ use App\Models\Peopletype;
 use App\Models\Pricepenality;
 use App\Models\Transaction;
 use App\Models\Vehiclecategory;
+use Illuminate\Http\Request;
 
 class PricePenalityRepository
 {

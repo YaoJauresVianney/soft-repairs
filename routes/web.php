@@ -21,9 +21,12 @@ Route::post('/updateuser', 'App\Actions\Fortify\UpdateUserProfilInformation@upda
 Route::get('/clients', 'App\Http\Controllers\ClientController@index')->name('clients.index')->middleware('auth');
 Route::get('/clients/new', 'App\Http\Controllers\ClientController@create')->name('clients.create')->middleware('auth');
 Route::get('/clients/{id}/edit', 'App\Http\Controllers\ClientController@edit')->name('clients.edit')->middleware('auth');
+Route::get('/clients/{id}/repairs', 'App\Http\Controllers\ClientController@list')->name('clients.repairs')->middleware('auth');
+Route::get('/clients/{id}/pending', 'App\Http\Controllers\ClientController@listOfPending')->name('clients.pending')->middleware('auth');
 Route::post('/clients/store', 'App\Http\Controllers\CLientController@store')->name('clients.store')->middleware('auth');
 Route::post('/clients/update', 'App\Http\Controllers\ClientController@update')->name('clients.updating')->middleware('auth');
 Route::post('/clients/destroy', 'App\Http\Controllers\ClientController@destroy')->name('clients.destroy')->middleware('auth');
+Route::get('/clients/{id}/pending/invoices', 'App\Http\Controllers\ClientController@listOfInvoice')->name('clients.listinvoices')->middleware('auth');
 
 Route::get('/repairs', 'App\Http\Controllers\RepairController@index')->name('repairs.index')->middleware('auth');
 Route::get('/repairsclosed', 'App\Http\Controllers\RepairController@closed')->name('repairs.closed')->middleware('auth');

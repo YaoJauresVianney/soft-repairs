@@ -45,6 +45,7 @@ class RepairRepository
             ->where('archived', 1)
             ->where('deleted_at', null)
             ->orderBy('date_release', 'desc')
+            ->limit(4000)
             ->get();
     }
 }

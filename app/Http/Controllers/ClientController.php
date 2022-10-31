@@ -21,7 +21,6 @@ class ClientController extends Controller
 
     public function index() {
         $clients = $this->clientRepo->all();
-
         return view('clients.index', compact('clients'));
     }
 
@@ -96,5 +95,31 @@ class ClientController extends Controller
                 'class' => $this->clientRepo->class_fail
             ]
             );
+    }
+    public function list(int $id) {
+        $repairs = $this->clientRepo->invoicesList($id);
+        $client = Client::find($id);
+        $repairsPending = $this->clientRepo->repairsClient($id, 'pending');
+        $nbOfRepairs = $repairsPending->count();
+
+        return view('clients.list-invoice', compact('repairs', 'client', 'nbOfRepairs'));
+    }
+
+    public function listOfPending(int $id) {
+        $repairsPending = $this->clientRepo->repairsClient($id, 'pending');
+        $client = Client::find($id);
+
+        return view('clients.invoices', compact('repairsPending', 'client'));
+    }
+
+    public function listOfInvoice(int $id) {
+        $repairs = $this->clientRepo->printInvoicesClient($id, 'pending');
+        //dd($repairs);
+        $tot = 0;
+        foreach($repairs as $repair) {
+            $tot += $repair->sumDays()+$repair->tva() - $repair->reduction;
+        }
+
+        return view('clients.list-invoices', compact('repairs', 'tot'));
     }
 }

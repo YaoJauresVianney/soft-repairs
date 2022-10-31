@@ -47,7 +47,8 @@ class ClientRepository
     public $class_success = 'alert alert-success';
 
     public function all() {
-        return Client::orderBy('created_at', 'desc')->get();
+        return Client::withCount('repairs')
+            ->orderBy('created_at', 'desc')->get();
     }
 
     public function create(Request $request) {
@@ -85,5 +86,24 @@ class ClientRepository
 
     public function newClients() {
         return Client::whereDate('created_at', Carbon::today()->toDateString())->get();
+    }
+
+    public function invoicesList(int $id) {
+        return Repair::with('client', 'peopletype', 'vehiclecategory', 'wrecker')
+        ->where('client_id', $id)
+        ->orderBy('created_at', 'desc')
+        ->get();
+    }
+
+    public function repairsClient(int $id, string $state) {
+        return Repair::with('client', 'peopletype', 'vehiclecategory', 'wrecker')
+            ->where('client_id', $id)
+            ->where('state', $state)
+            ->orderBy('created_at', 'desc')
+            ->get();
+    }
+
+    public function printInvoicesClient($id, string $state) {
+        return $this->repairsClient($id, $state);
     }
 }

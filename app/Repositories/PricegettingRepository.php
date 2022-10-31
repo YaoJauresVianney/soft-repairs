@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\Pricegetting;
+use Illuminate\Http\Request;
 
 class PricegettingRepository
 {
