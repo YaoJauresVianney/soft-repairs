@@ -54,7 +54,8 @@ class Repair extends Model
         'reduction',
         'amount',
         'archived',
-        'park'
+        'park',
+        'work_time'
     ];
 
     /**
@@ -94,7 +95,8 @@ class Repair extends Model
         'reduction' => 'integer',
         'amount' => 'integer',
         'archived' => 'boolean',
-        'park' => 'string'
+        'park' => 'string',
+        'work_time' => 'integer'
     ];
 
     /**

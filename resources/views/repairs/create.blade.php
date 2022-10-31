@@ -19,7 +19,7 @@
                                 <label for="">Date enlèvement</label>
                                 <input type="date" name="date_getting" id="date_getting" class="form-control @error('date_getting') 'is-invalid' @enderror" >
                                 @error('date_getting')
-                                    <div class="invalid-feedback">{{$message}}</div>
+                                <div class="invalid-feedback">{{$message}}</div>
                                 @enderror
                             </div>
                             <div class="col-md-3">
@@ -33,7 +33,7 @@
                                 <label for="">Lieu enlèvement</label>
                                 <input type="text" name="place_getting" id="place_getting" class="form-control @error('place_getting') is-invalid @enderror" >
                                 @error('place_getting')
-                                    <div class="invalid-feedback">{{$message}}</div>
+                                <div class="invalid-feedback">{{$message}}</div>
                                 @enderror
                             </div>
                             <div class="col-md-3">
@@ -65,60 +65,61 @@
                                 <div class="invalid-feedback">{{$message}}</div>
                                 @enderror
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <label for="">Catégorie véhicule</label>
-                                    <select class="form-control @error('vehiclecategory_id') is-invalid @enderror" id="vehiclecategory_id" name="vehiclecategory_id" >
+                                <select class="form-control @error('vehiclecategory_id') is-invalid @enderror" id="vehiclecategory_id" name="vehiclecategory_id" >
 
-                                        <option value="">-- Catégories --</option>
+                                    <option value="">-- Catégories --</option>
 
-                                        @foreach($categories as $category)
+                                    @foreach($categories as $category)
 
-                                            <option value="{{ $category->id }}">{{ $category->getFullnameAttribute('') }}</option>
+                                        <option value="{{ $category->id }}">{{ $category->getFullnameAttribute('') }}</option>
 
-                                        @endforeach
+                                    @endforeach
 
-                                    </select>
+                                </select>
                                 @error('vehiclecategory_id')
                                 <div class="invalid-feedback">{{$message}}</div>
                                 @enderror
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <label for="">Immatriculation</label>
                                 <input type="text" name="car_imm" id="car_imm" class="form-control @error('car_imm') is-invalid @enderror" >
                                 @error('car_imm')
                                 <div class="invalid-feedback">{{$message}}</div>
                                 @enderror
                             </div>
+
                         </div>
                         <div class="row mb-3">
                             <div class="col-md-6">
                                 <label for="wrecker_id">Dépanneuse</label>
-                                    <select class="form-control @error('wrecker_id') is-invalid @enderror" id="wrecker_id" name="wrecker_id" >
+                                <select class="form-control @error('wrecker_id') is-invalid @enderror" id="wrecker_id" name="wrecker_id" >
 
-                                        <option value="">-- Dépanneuses --</option>
+                                    <option value="">-- Dépanneuses --</option>
 
-                                        @foreach($wreckers as $wrecker)
+                                    @foreach($wreckers as $wrecker)
 
-                                            <option value="{{ $wrecker->id }}">{{ $wrecker->getFullnameAttribute('') }}</option>
+                                        <option value="{{ $wrecker->id }}">{{ $wrecker->getFullnameAttribute('') }}</option>
 
-                                        @endforeach
+                                    @endforeach
 
-                                    </select>
+                                </select>
                                 @error('wrecker_id')
                                 <div class="invalid-feedback">{{$message}}</div>
                                 @enderror
-                                    <label for="peopletype_id">Type de client</label>
-                                    <select class="form-control @error('peopletype_id') is-invalid @enderror" id="peopletype_id" name="peopletype_id" >
+                                <label for="peopletype_id">Type de client</label>
+                                <select class="form-control @error('peopletype_id') is-invalid @enderror" id="peopletype_id" name="peopletype_id" >
 
-                                        <option value="">-- Type de client --</option>
+                                    <option value="">-- Type de client --</option>
 
-                                        @foreach($peopleTypes as $peopleType)
+                                    @foreach($peopleTypes as $peopleType)
 
-                                            <option value="{{ $peopleType->id }}">{{ $peopleType->label }}</option>
+                                        <option value="{{ $peopleType->id }}">{{ $peopleType->label }}</option>
 
-                                        @endforeach
+                                    @endforeach
 
-                                    </select>
+                                </select>
                                 @error('peopletype_id')
                                 <div class="invalid-feedback">{{$message}}</div>
                                 @enderror
@@ -149,6 +150,7 @@
                                 </select>
                                 @error('client_id')
                                 <div class="invalid-feedback">{{$message}}</div>
+                                @enderror
                             </div>
                             <div class="col-md-6 card pb-1">
                                 <label for="fullname">Nom & prénoms du client</label>
@@ -181,31 +183,31 @@
                         <div class="col-md-12">
                             <table class="table table-bordered criteria">
                                 <thead>
-                                    <th></th>
-                                    <th>Oui</th>
-                                    <th width="25%">Nombre</th>
-                                    <th>Etat et observations</th>
+                                <th></th>
+                                <th>Oui</th>
+                                <th width="25%">Nombre</th>
+                                <th>Etat et observations</th>
                                 </thead>
                                 <tbody>
-                                    @if (!isset($repair))
-                                        @foreach ($criterias as $c)
-                                            <tr>
-                                                <td>{{ $c->label }}</td>
-                                                <td><input type="checkbox" name="yes[{{$c->id}}]" id=""></td>
-                                                <td><input type="number" name="num[{{$c->id}}]" class="form-control"></td>
-                                                <td><input type="text" name="comments[{{$c->id}}]" class="form-control"></td>
-                                            </tr>
-                                        @endforeach
-                                    @else
-                                        @foreach ($repair->criterias as $c)
+                                @if (!isset($repair))
+                                    @foreach ($criterias as $c)
+                                        <tr>
+                                            <td>{{ $c->label }}</td>
+                                            <td><input type="checkbox" name="yes[{{$c->id}}]" id=""></td>
+                                            <td><input type="number" name="num[{{$c->id}}]" class="form-control"></td>
+                                            <td><input type="text" name="comments[{{$c->id}}]" class="form-control"></td>
+                                        </tr>
+                                    @endforeach
+                                @else
+                                    @foreach ($repair->criterias as $c)
                                         <tr>
                                             <td>{{ $c->label }}</td>
                                             <td><input type="checkbox" name="yes[{{$c->id}}]" value={{$c->pivot->yes}}></td>
                                             <td><input type="number" name="num[{{$c->id}})" class="form-control" value={{$c->pivot->number}}></td>
                                             <td><input type="text" name="comments[{{$c->id}}]" class="form-control" value={{$c->pivot->comments}}></td>
                                         </tr>
-                                        @endforeach
-                                    @endif
+                                    @endforeach
+                                @endif
                                 </tbody>
                             </table>
                         </div>

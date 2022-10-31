@@ -11,15 +11,15 @@
                 <div class="row">
                     <div class="col-md-6">
                         <label for="vehiclecategory_id">Catégorie véhicule</label>
-                        <select name="vehiclecategory_id" id="vehiclecategory_id" class="form-control">
+                        <select name="vehiclecategory_id" id="select2s" class="form-control">
                             @foreach ($vehiclecategories as $vehiclecategory)
                                 <option value={{ $vehiclecategory->id }}>{{ $vehiclecategory->fullname }}</option>
                             @endforeach
                         </select>
                     </div>
                     <div class="col-md-6">
-                        <label for="peopletype_id">Catégorie véhicule</label>
-                        <select name="peopletype_id" id="peopletype_id" class="form-control">
+                        <label for="peopletype_id">Type de client</label>
+                        <select name="peopletype_id" id="select_location" class="form-control">
                             @foreach ($peopletypes as $peopletype)
                                 <option value={{ $peopletype->id }}>{{ $peopletype->label }}</option>
                             @endforeach
