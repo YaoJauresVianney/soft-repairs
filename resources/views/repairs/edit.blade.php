@@ -20,7 +20,7 @@
                         <div class="row" mb-3>
                             <div class="col-md-4">
                                 <label for="reduction">Réduction</label>
-                                <input type="number" name="reduction" class="form-control">
+                                <input type="number" name="reduction" class="form-control" value={{$repair->reduction}}>
                             </div>
                         </div>
                         <div class="row mb-3">
