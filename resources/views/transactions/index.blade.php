@@ -21,8 +21,8 @@
                     <td>Numéro Transaction</td>
                     <td>Type</td>
                     <td>Description</td>
-                    <td>Amount</td>
-                    <td>Way_of</td>
+                    <td>Montant</td>
+                    <td>Type de paiement</td>
                     <td>Actions</td>
                 </tr>
                 </thead>
