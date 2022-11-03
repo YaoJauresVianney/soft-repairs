@@ -303,7 +303,7 @@ class RepairController extends Controller
             'amount' => $request->amount,
             'way_of' => $request->way_of,
             'repair_id' => $request->repair_id,
-            'desc' => "Règlement de la facture N°$repair->reference d'un montant de $request->amount FCFA"
+            'desc' => "Règlement de la facture N°$repair->reference d'un montant de " . number_format($request->amount, 0, ' ', '.') . "FCFA"
         ]);
         if($transaction) {
             $r = $this->releaseTheCar($repair);

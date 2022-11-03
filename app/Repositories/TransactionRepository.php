@@ -5,6 +5,7 @@ namespace App\Repositories;
 use App\Models\Transaction;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
+use Illuminate\Http\Request;
 
 class TransactionRepository
 {
