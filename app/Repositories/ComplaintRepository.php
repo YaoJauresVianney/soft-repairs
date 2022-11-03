@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use App\Models\Complaint;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 class ComplaintRepository
 {
