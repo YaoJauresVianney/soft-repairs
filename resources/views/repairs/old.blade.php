@@ -72,15 +72,15 @@
 
                         </td>
                         <td class="d-flex">
-                            @if(in_array(\Illuminate\Support\Facades\Auth::user()->role, ['gerant', 'caissiere']))
-                            <a href="{{ route('repairs.payment', $repair->id) }}">
+                            @if(App\Helpers\Helper::userVerification(['gerant', 'caissiere']))
+                            <a href="{{ route('repairs.payment', $repair->id) }}" class="btn">
                                 <img src="{{ asset('svg/paiement.svg') }}" alt="Payer" height="20" width="20">
                             </a>
-                            <a href="{{ route('repairs.edit', $repair->id) }}">
+                            <a href="{{ route('repairs.edit', $repair->id) }}" class="btn">
                                 <img src="{{ asset('svg/modify.svg') }}" alt="Modifier" height="20" width="20">
                             </a>
                             @endif
-                                @if(\Illuminate\Support\Facades\Auth::user()->role === 'gerant')
+                                @if(\App\Helpers\Helper::userVerification(['gerant']))
                                     <form method="post" action="{{route('repairs.destroy')}}">
                                         @csrf
                                         <input type="hidden" name="id" value={{$repair->id}}>
