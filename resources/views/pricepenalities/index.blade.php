@@ -32,7 +32,7 @@
                         <td>{{ $pricepenality->peopletype->label }}</td>
                         <td>{{ $pricepenality->penality_per_day }}</td>
                         <td class="d-flex">
-                            @if(\Illuminate\Support\Facades\Auth::user()->role == 'gerant')
+                            @if(\App\Helpers\Helper::userVerification(['gerant']))
                             <a href="{{ route('pricepenalities.edit', $pricepenality->id) }}" class="btn"><img src="{{ asset('svg/modify.svg') }}" alt="Modifier" height="20" width="20"></a>
                             <form method="post" action="{{route('pricepenalities.index')}}">
                                 @csrf

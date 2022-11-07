@@ -68,12 +68,14 @@
                         <td>{!! $wrecker->insurance !!} -
                             <div class="{{ $wrecker->afterOrBefore($wrecker->insurance)['class'] }}">{{ $wrecker->differenceBetween()["insurance"]["year"] }} An(s) {{ $wrecker->differenceBetween()["insurance"]["month"] }} Mois {{ $wrecker->differenceBetween()["insurance"]["day"] }} jour(s)</div></td>
                         <td class="d-flex">
+                            @if(\App\Helpers\Helper::userVerification(['gerant']))
                             <a href="{{ route('wreckers.edit', $wrecker->id) }}" class="btn"><img src="{{ asset('svg/modify.svg') }}" alt="Modifier" height="20" width="20"></a>
                             <form method="post" action="{{route('wreckers.destroy')}}">
                                 @csrf
                                 <input type="hidden" name="id" value={{$wrecker->id}}>
                                 <button class="btn" type="submit" onclick="return confirm('Etes vous sûrs?')"><img src="{{ asset('svg/delete.svg') }}" alt="Supprimer" height="20" width="20"></button>
                             </form>
+                            @endif
                         </td>
                     </tr>
                 @endforeach

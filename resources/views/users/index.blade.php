@@ -36,12 +36,14 @@
                         <td>{{ $user->role }}</td>
                         <td><input type="checkbox" class="form-check" {{ $user->is_enabled == true ? 'checked' : ''}} disabled></td>
                         <td class="d-flex">
+                            @if(\App\Helpers\Helper::userVerification(['gerant']))
                             <a href="{{route('users.edit', $user->id)}}" class="btn"><img src="{{ asset('svg/modify.svg') }}" height="20" width="20" alt="Modifier"></a>
                             <form method="post" action="{{route('users.destroy')}}">
                                 @csrf
                                 <input type="hidden" name="id" value={{$user->id}}>
                                 <button type="submit" class="btn" onclick="return confirm('Etes vous sûrs?')"><img src="{{asset('svg/delete.svg')}}" height="20" width="20"></button>
                             </form>
+                            @endif
                         </td>
                     </tr>
                 @endforeach

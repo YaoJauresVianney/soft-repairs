@@ -34,7 +34,7 @@
                         <td>{{ $pricegetting->price_day }}</td>
                         <td>{{ $pricegetting->price_night }}</td>
                         <td class="d-flex">
-                            @if(\Illuminate\Support\Facades\Auth::user()->role == 'gerant')
+                            @if(\App\Helpers\Helper::userVerification(['gerant']))
                             <a href="{{ route('pricegettings.edit', $pricegetting->id) }}" class="btn">
                                 <img src="{{ asset('svg/modify.svg') }}" alt="modifier" height="20" width="20">
                             </a>

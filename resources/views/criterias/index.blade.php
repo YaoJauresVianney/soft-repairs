@@ -37,6 +37,7 @@
                             @endif
                         </td>
                         <td class="d-flex">
+                            @if(\App\Helpers\Helper::userVerification(['gerant']))
                             <a href="{{route('criterias.edit', $criteria->id)}}" class="btn"><img src="{{asset('svg/modify.svg')}}" height="18" width="18"></a>
                             <a href="" class="btn"><img src="{{asset('svg/recu.svg')}}" height="18" width="18"></a>
                             <form method="post" action="{{route('criterias.destroy')}}">
@@ -44,6 +45,7 @@
                                 <input type="hidden" name="id" value={{$criteria->id}}>
                                 <button type="submit" class="btn" onclick="return confirm('Etes vous sûrs?')"><img src="{{asset('svg/delete.svg')}}" height="18" width="18"></button>
                             </form>
+                            @endif
                         </td>
                     </tr>
                 @endforeach

@@ -32,12 +32,14 @@
                         <td>{{ $peopletype->label }}</td>
                         <td><input type="checkbox" {{ $peopletype->is_enabled == 1 ? 'checked' : '' }} disabled></td>
                         <td class="d-flex">
+                            @if(\App\Helpers\Helper::userVerification(['gerant']))
                             <a href="{{ route('peopletypes.edit', $peopletype->id) }}" class="btn"><img src="{{ asset('svg/modify.svg') }}" alt="Modifier" height="20" width="20"></a>
                             <form action="{{route('peopletypes.destroy')}}" method="post">
                                 @csrf
                                 <input type="hidden" name="id" value={{$peopletype->id}}>
                                 <button class="btn" type="submit" id="del_button" onclick="return confirm('Etes vous sûrs?')"><img src="{{ asset('svg/delete.svg') }}" alt="Supprimer" height="20" width="20"></button>
                             </form>
+                            @endif
                         </td>
                     </tr>
                 @endforeach

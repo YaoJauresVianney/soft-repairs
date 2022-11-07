@@ -43,7 +43,7 @@
                         <td>{{ $transaction->amount }}</td>
                         <td>{{ $transaction->way_of }}</td>
                         <td class="d-flex">
-                            @if(\Illuminate\Support\Facades\Auth::user()->role == 'gerant')
+                            @if(\App\Helpers\Helper::userVerification(['gerant']))
                             <a href="{{ route('transactions.edit', $transaction->id) }}" class="btn">
                                 <img src="{{ asset('svg/modify.svg') }}" alt="Modifier" height="20" width="20">
                             </a>

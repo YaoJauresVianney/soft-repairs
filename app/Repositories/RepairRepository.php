@@ -7,15 +7,6 @@ use Carbon\Carbon;
 
 class RepairRepository
 {
-    private function generateReference(int $length) {
-        $characters = '123456789ABCDEFGHIJKLMNPQRSTUVWXYZ';
-        $charactersLength = strlen($characters);
-        $randomString = '';
-        for($i = 0; $i < $length; $i++) {
-            $randomString .= $characters[rand(0, $charactersLength - 1)];
-        }
-        return $randomString;
-    }
 
     public function inParc() {
         return Repair::with('client', 'wrecker', 'peopletype', 'vehiclecategory', 'criterias')

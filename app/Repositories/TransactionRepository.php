@@ -33,7 +33,7 @@ class TransactionRepository
     public $update_fail = "La mise à jour de la transaction a été un echec.";
 
     public function all() {
-        return Transaction::orderBy('created_at', 'desc')->get();
+        return Transaction::orderBy('created_at', 'desc')->limit(1000)->get();
     }
 
     public function create(Request $request) {
