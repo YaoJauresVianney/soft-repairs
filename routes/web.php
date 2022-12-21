@@ -40,6 +40,8 @@ Route::get('/repairs/{id}/payment', 'App\Http\Controllers\RepairController@payme
 Route::post('/repairs/pay', 'App\Http\Controllers\RepairController@pay')->name('repairs.pay')->middleware('auth');
 Route::get('/repairs/old', 'App\Http\Controllers\RepairController@sixMonths')->name('repairs.old')->middleware('auth');
 Route::post('/repairs/destroy', 'App\Http\Controllers\RepairController@destroy')->name('repairs.destroy')->middleware('auth');
+Route::post('/repairs/show', 'App\Http\Controllers\RepairController@showing')->name('repairs.showing')->middleware('auth');
+
 
 Route::get('/transactions', 'App\Http\Controllers\TransactionController@index')->name('transactions.index')->middleware('auth');
 Route::get('/transactions/new', 'App\Http\Controllers\TransactionController@create')->name('transactions.create')->middleware('auth');

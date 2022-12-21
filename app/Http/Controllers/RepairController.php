@@ -54,6 +54,13 @@ class RepairController extends Controller
         return $days;
     }
 
+
+    public function showing(Request $request) {
+        $contents = $request;
+        dd($contents);
+        return view('repairs.show', compact('contents'));
+    }
+
     public function store(Request $request) {
         // dd(Client::all()->last()->id);
         $clientId = null;
@@ -69,7 +76,7 @@ class RepairController extends Controller
             'wrecker_id' => ['required', 'exists:wreckers,id'],
             'peopletype_id' => ['required', 'exists:peopletypes,id'],
             'reasons' => ['required'],
-            'park' => ['required']
+            'park' => ['required'],
         ]);
 
         // Client

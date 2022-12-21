@@ -294,9 +294,16 @@
                     </div>
                 </div>
                 <div class="row fw-bold">
-                    <div class="col-md-2"><input type="submit" value="ENREGISTRER" class="btn btn-success"></div>
-                    <div class="col-md-3"><a href="{{ route('repairs.index') }}" class="btn btn-primary">ANNULER</a></div>
+                    <div class="col-md-1 mr-5"><input type="submit" value="ENREGISTRER" class="btn btn-success" onclick="confirm('Avez vous vérifiez les informations entrées?')"></div>
+                    <div class="col-md-1 mr-3"><a href="{{ route('repairs.index') }}" class="btn btn-primary">ANNULER</a></div>
+                    <div class="col-md-1">
+
+                    </div>
                 </div>
+            </form>
+            <form action="{{ route('repairs.showing') }}" method="post">
+                @csrf
+                <input type="submit" class="btn btn-secondary" value="APERCU">
             </form>
         </div>
     </div>
