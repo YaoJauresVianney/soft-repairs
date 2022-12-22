@@ -28,7 +28,7 @@
                 </thead>
                 @foreach ($repairs as $repair)
                     <tr>
-                        <td><a href="{{ route('repairs.invoice', $repair->id) }}" class="btn btn-link">{{ $repair->reference }}</a></td>
+                        <td><a href="{{ route('repairs.invoice', $repair->id) }}" target="_blank" class="btn btn-link">{{ $repair->reference }}</a></td>
                         <td>{{ $repair->client->fullname }}</td>
                         <td>
                     <span class="alert alert-default-info p-1">
@@ -70,10 +70,10 @@
 
                         </td>
                         <td class="d-flex">
-                            <a href="{{route('repairs.receipt', $repair->id)}}" class="btn">
+                            <a href="{{route('repairs.receipt', $repair->id)}}" target="_blank" class="btn">
                                 <img src="{{asset('svg/recu.svg')}}" height="20" width="20" alt="Reçu">
                             </a>
-                            <a href="{{route('repairs.invoice', $repair->id )}}" class="btn">
+                            <a href="{{route('repairs.invoice', $repair->id )}}" target="_blank" class="btn">
                                 <img src="{{asset('svg/facture.svg')}}" height="20" width="20" alt="Facture">
                             </a>
                         </td>

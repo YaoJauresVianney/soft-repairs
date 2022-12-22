@@ -32,7 +32,7 @@
                 </thead>
                 @foreach ($repairs as $repair)
                     <tr>
-                        <td><a href="{{ route('repairs.invoice', $repair->id) }}" class="btn btn-link">{{ $repair->reference }}</a></td>
+                        <td><a href="{{ route('repairs.invoice', $repair->id) }}" target="_blank" class="btn btn-link">{{ $repair->reference }}</a></td>
                         <td>{{ $repair->client->fullname }}</td>
                         <td>
                     <span class="alert alert-default-info p-1">
